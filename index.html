@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى حبيبة قلبي سجود</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background: #ffe6e6;
+            overflow-x: hidden;
+            display: flex; justify-content: center; align-items: center;
+            min-height: 100vh;
+        }
+
+        .hearts-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: -1;
+        }
+
+        .heart {
+            position: absolute; color: #ff4d6d; font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
+            width: 95%; max-width: 650px; /* كبرت البانل شوية */
+            text-align: center; display: none;
+            border: 2px solid #ffb3c1; margin: 10px;
+        }
+
+        .active { display: block; animation: fadeIn 0.8s ease-in-out; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        h2 { color: #ff4d6d; margin-bottom: 20px; }
+
+        input {
+            width: 80%; padding: 12px; margin: 15px 0;
+            border: 2px solid #ffb3c1; border-radius: 12px;
+            text-align: center; font-size: 16px;
+        }
+
+        button {
+            background: #ff4d6d; color: white; border: none;
+            padding: 12px 25px; border-radius: 25px;
+            cursor: pointer; font-size: 18px; font-weight: bold;
+            transition: 0.3s; margin-top: 10px;
+        }
+
+        button:hover { background: #c9184a; transform: scale(1.05); }
+
+        .message-content {
+            text-align: right; line-height: 1.8;
+            max-height: 350px; overflow-y: auto;
+            padding: 20px; background: #fff;
+            border-radius: 15px; font-size: 18px;
+            border-right: 5px solid #ff4d6d;
+        }
+
+        /* تعديلات الألبوم والتكبير */
+        .slider-box {
+            position: relative; width: 100%; height: 450px; /* كبرت الطول */
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; border-radius: 15px; margin: 15px 0; background: #fdf2f4;
+        }
+
+        .slide { 
+            max-width: 100%; max-height: 100%; 
+            display: none; object-fit: contain;
+            border-radius: 10px;
+        }
+        .slide.active-img { display: block; animation: zoomIn 0.5s; }
+
+        @keyframes zoomIn { from { opacity: 0; scale: 0.9; } to { opacity: 1; scale: 1; } }
+
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255, 77, 109, 0.8); color: white;
+            border: none; width: 45px; height: 45px;
+            cursor: pointer; border-radius: 50%; font-size: 24px;
+            z-index: 10; display: flex; align-items: center; justify-content: center;
+        }
+        /* تظبيط أماكن الأسهم */
+        .prev { left: 15px; } /* سهم الرجوع على الشمال */
+        .next { right: 15px; } /* سهم التالي على اليمين */
+
+        #youtube-player { display: none; }
+    </style>
+</head>
+<body>
+
+<div id="youtube-player"></div>
+<div class="hearts-container" id="hearts"></div>
+
+<div class="card active" id="step1">
+    <h2>ازيك  يا روحي ❤️</h2>
+    <p>اكتبي الباسورد في الخانة اللي تحت دي يا روحي</p>
+    <input type="text" id="passInput" placeholder="Sjoud And Abdo Forever">
+    <br>
+    <button onclick="checkPassword()">اضغطي هنا بعد ما تكتبي الباسورد</button>
+</div>
+
+<div class="card" id="step2">
+    <h2>اجمل بنت في الدنيا كلها بصي بقا </h2>
+    <div class="message-content">
+        كنت حابب اقولك كام حاجه كده 🤍✨<br>
+        حابب اقولك اني بجد يبختي بيكي والله لانك جميله و حنينه و قلبك ابيض و بتخافي عليا اكثر من نفسي بجد وع كل حاجه بتعمليها معايا حبك جوايا بيزيد جوايا وبفضل قاعد أفكر فيكي و اسرح فيكي بالساعات والله ده غير اني بحلم بيكي كل يوم و بحبك اوي ينور عيني بعشقك يقلبي وبجد بتمني تكوني من نصيبي لان الحياه من غيرك متبقاش حياه انا بحبك اويييي يا ام عيالي عايز اقولك انك اكتر واحده حبيتها في حياتي وعمري ما كنت متخيل أن الحب ده يطلع مني ليكي بجد عمري ما اقدر اوصفك ولا اقدر حتي اوصف قد اي ضحكتك حلوه ازاي بجد انا فرحان ومبسوط انك معايا حتي لو من بعيد بجد مهما بعدتي هفضل احبك وهتفضلي انتي نصي التاني بجد انتي جوايا انا كل يوم بسال نفسي بجد عملت اي حلو عشان ربنا يعوضني بواحده محترمه وجميله وقمر زيك كدا بجد ربنا يخليكي ليا وما يحرمنيش منك ابدا يا نور عيني كل سنه ونتى طيبه وكل سنه وانتى معايا وسنه سعيده علينا وي رب العمر كلو مع بعض وحابب اقولك ع شويه حجات ف قلبي كدا حبيت اقولك ان دي اجمل سنه تعدى بوجودك وان شاء الله كل السنين الى جايه مع ببعض وحابب اقولك م ندمان اني اخترتك شريكه لحيااتي م ندمان اني حبيتك ولا اني دخلتك حياتي بالعكس فخور ب اختیاري لیکی و مهما قولت مفيش كلام يوصف حبى ليكى او يوفيلك حقك كل حاجه حلوه بتعمليها عشاني ف حقیقي ببقا فرحان و مبسوط اوي بوجودك ف حياتي وجودك ف حياتى شي مهم جدا ومهما اتخنقنا واتخصمنا ومهما روحنا ومهما جينا ملناش غير بعض و حقیقی فخور اوي اني حبيتك وفخور اكثر بحبك وانك ديما معايا وجمبي تعرفى انك اقرب وحده ليا ولقلبى بجد ومش عاوز حد غيرك انتي وبس فرحان ونا جمبك ومرتاح وبحبك وبحب خوفك عليا انتى صلحتى فيا حجات كتير بحب نصيحتك ليا وقلقك عليا انتى امي وابويا وحبيبتي واختى وخطيبتي ومراتى وبنتي وكل حاجه ليا ماقدرش اعيش من غيرك...<br><br>
+        <b>وبحبكككككك ي سجودددد ❤️🫶🏻</b>
+    </div>
+    <button onclick="nextStep(3)">اضغطي هنا يا روحي</button>
+</div>
+
+<div class="card" id="step3">
+    <h2>اجمل بنت في الدنيا كلها ❤</h2>
+    <div class="slider-box">
+        <img src="https://i.ibb.co/1YQQYY73/1.jpg" class="slide active-img">
+        <img src="https://i.ibb.co/1YQQYY73/2.jpg" class="slide">
+        <img src="https://i.ibb.co/zhgt71W2/3.jpg" class="slide">
+        <img src="https://i.ibb.co/xxTdfZD/4.jpg" class="slide">
+        <img src="https://i.ibb.co/Dd5hdN6/5.jpg" class="slide">
+        <img src="https://i.ibb.co/KjfbMzXy/6.jpg" class="slide">
+
+        <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
+    </div>
+    <button onclick="nextStep(4)">اضغطي هنا يا حبيبة قلبي</button>
+</div>
+
+<div class="card" id="step4">
+    <h2>بصي بقا ي حبيبة قلبي </h2>
+    <p style="font-size: 20px;">دي هديه مني ليكي ي حبيبة قلبي يارب تكون عجبتك ي حبيبتي ربنا  يخليكي ليا يارب اوعي تكوني زعلانه مني في حاجه حقك عليا انا اسف ولله انا بحبك بجد وعمري م هفكر ابعد عنك ي نور عيني  .</p>
+    <div style="font-size: 60px; margin-top: 20px;">💍✨❤️</div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    let player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtube-player', {
+            height: '0', width: '0',
+            videoId: 'QoVd8rOnzyw',
+            playerVars: { 'autoplay': 0, 'loop': 1, 'playlist': 'QoVd8rOnzyw' }
+        });
+    }
+
+    function createHearts() {
+        const container = document.getElementById('hearts');
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }, 300);
+    }
+    createHearts();
+
+    function checkPassword() {
+        const pass = document.getElementById('passInput').value;
+        if (pass.trim() === "Sjoud And Abdo Forever") {
+            if (player && player.playVideo) player.playVideo();
+            nextStep(2);
+        } else {
+            alert("الباسورد غلط يا روحي، ركزي ❤️");
+        }
+    }
+
+    function nextStep(step) {
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+        document.getElementById('step' + step).classList.add('active');
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    function changeSlide(n) {
+        slides[currentSlide].classList.remove('active-img');
+        currentSlide = (currentSlide + n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active-img');
+    }
+</script>
+</body>
+</html>
